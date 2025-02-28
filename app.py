@@ -1,6 +1,5 @@
 import json
 import os
-from random import choices
 
 import streamlit as st
 from PIL import Image
@@ -28,7 +27,7 @@ def generate_content(image, length, social_media, mood, language):
         if length == "Medium":
             length = "medium-length"
         prompt = (f"Generate a {length.lower()} {mood} {social_media} (social media) post for this image. Generate the "
-              f"post directly in the `content` field of a json, don't generate anything else.")
+                  f"post directly in the `content` field of a json, don't generate anything else.")
     else:
         if "mood" == POSITIVE_OPTION:
             mood = "positif"
@@ -75,7 +74,7 @@ if go:
         image = Image.open(image)
         with st.spinner("Generating content..."):
             result = generate_content(image, length, social_media, mood, language)
-        st.image(image)
         st.code(result, language="markdown", wrap_lines=True)
+        st.image(image)
 
 st.write("❤️ Made by [@tschillaciML](https://x.com/tschillaciML) using Gemini.")
