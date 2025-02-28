@@ -74,7 +74,7 @@ if go:
         image = Image.open(image)
         with st.spinner("Generating content..."):
             result = generate_content(image, length, social_media, mood, language)
-        st.code(result, language="markdown", wrap_lines=True)
+        st.markdown(result)
         st.image(image)
 
 st.write("❤️ Made by [@tschillaciML](https://x.com/tschillaciML) using Gemini.")
